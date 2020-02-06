@@ -1,7 +1,7 @@
 .rmdb-header {
   width: 100%;
   height: auto;
-  background: #1c1c1c;
+  background: #020b0f;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -10,15 +10,14 @@
   max-width: 1280px;
   min-height: 120px;
   height: auto;
-  padding: 20px 0px;
+  padding: 5px 0px;
   margin: 0 auto;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .rmdb-logo {
-  width: 300px;
-  margin-top: 20px;
+  width: 200px;
   float: left;
 }
 
