@@ -21,7 +21,7 @@ class Home extends Component{
     }
     componentDidMount(){
         this.setState({loading:true});
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&languaje=es&page=1`;
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`;
         this.fetchItems(endpoint);        
     }
     searchItems = (searchTerm) => {
@@ -33,9 +33,9 @@ class Home extends Component{
             searchTerm
         });
         if(searchTerm === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&languaje=es&page=1`
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`
         }else{
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languaje=es&query=${searchTerm}`
+            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${searchTerm}`
         }
         this.fetchItems(endpoint);
     
@@ -44,8 +44,8 @@ class Home extends Component{
     loadMoreMovies = () => {
         let endpoint = '';
         this.setState({loading:true});
-        this.state.searchTerm === '' ? endpoint=`${API_URL}movie/popular?api_key=${API_KEY}&languaje=es&page=${this.state.currentPage+1}`
-        : endpoint = `${API_URL}search/movie?api_key=${API_KEY}&languaje=es&query${this.state.searchTerm}&page=${this.state.currentPage+1}`;
+        this.state.searchTerm === '' ? endpoint=`${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=${this.state.currentPage+1}`
+        : endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query${this.state.searchTerm}&page=${this.state.currentPage+1}`;
         this.fetchItems(endpoint);
     }
     fetchItems = (endpoint) => {
