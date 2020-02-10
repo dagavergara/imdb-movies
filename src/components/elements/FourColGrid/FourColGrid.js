@@ -23,5 +23,4 @@ const FourColGrid = (props) => {
         </div>
     )
 }
-
 export default FourColGrid;
