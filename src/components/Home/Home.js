@@ -33,7 +33,7 @@ class Home extends Component{
             searchTerm
         });
         if(searchTerm === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`
+            endpoint = `${API_URL}movie/popular?sort_by=popularity.desc&api_key=${API_KEY}&language=es&page=1`
         }else{
             endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${searchTerm}`
         }
