@@ -10,7 +10,7 @@ const Actor = (props) => {
         <div className="rmdb-actor">
             <img src={props.actor.profile_path ?
                 `${IMAGE_BASE_URL}${POSTER_SIZE}${props.actor.profile_path}`
-                : './image/no_image.jpg'
+                : './image/sin_foto.png'
             }
             alt="actorthumb"
             /> 

@@ -34,7 +34,7 @@ class Movie extends Component{
                 this.setState({loading:false});
             }else{
                 this.setState({movie: result}, ()=>{
-                    const endpoint= `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`
+                    const endpoint= `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}&languaje=es`
                     fetch(endpoint)
                     .then(result => result.json())
                     .then(result =>{
@@ -66,7 +66,7 @@ class Movie extends Component{
                 : null }
                 {this.state.actors ?
                     <div className="rmdb-movie-grid">
-                        <FourColGrid header={'Actor'}>
+                        <FourColGrid header={'Reparto'}>
                             {this.state.actors.map( (element, i) => {
                                 return <Actor key={i} actor={element}/>
                             })}

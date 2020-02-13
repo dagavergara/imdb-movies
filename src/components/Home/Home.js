@@ -49,15 +49,16 @@ class Home extends Component{
     loadMoreMovies = () => {
         let endpoint = '';
         this.setState({loading:true});
-        this.state.searchTerm === '' ? endpoint=`${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=${this.state.currentPage+1}`
-        : endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query${this.state.searchTerm}&page=${this.state.currentPage+1}`;
+        if (this.state.searchTerm === '' ){
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=${this.state.currentPage+1}`;
+        }else
+            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query${this.state.searchTerm}&page=${this.state.currentPage+1}`;
         this.fetchItems(endpoint);
     }
     fetchItems = (endpoint) => {
         fetch(endpoint)
         .then(result => result.json())
-        .then(result =>{
-            console.log(result);
+        .then(result =>{            
             this.setState({
                 movies: [...this.state.movies, ...result.results],
                 heroImage: this.state.heroImage || result.results[0],
@@ -70,6 +71,7 @@ class Home extends Component{
                 }                
             })
         })
+        .catch( error => console.error(error) )
     }
 
 
@@ -82,6 +84,7 @@ class Home extends Component{
                     title={this.state.heroImage.original_title}
                     text={this.state.heroImage.overview}/>
                     <SearchBar callback={this.searchItems}/>
+                    {console.log(this.state.HeroImage)}
                 </div>
                 : null } 
                 <div className="rmdb-home-grid">
@@ -92,9 +95,9 @@ class Home extends Component{
                                 return <MovieThumb 
                                     key={i} 
                                     clickable={true} 
-                                    image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/no_image.jpg'}
+                                    image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/sin_foto.png'}
                                     movieId={element.id}
-                                    movieName={element.original_title}
+                                    movieSpanish={element.title}
                                     />
                             })}
                     </FourColGrid>

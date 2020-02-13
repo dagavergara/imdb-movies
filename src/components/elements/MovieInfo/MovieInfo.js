@@ -18,7 +18,7 @@ const MovieInfo = (props) => {
                         <MovieThumb image={props.movie.poster_path ? 
                             `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}`
                             :
-                            './images/no_image.jpg'                            
+                            './images/sin_foto.png'                            
                         } clickable ={false}/>
                     </div>
                     <div className="rmdb-movieinfo-text">
@@ -35,7 +35,7 @@ const MovieInfo = (props) => {
                             return <p key={i} className="rmdb-director">{element.name}</p>
                         })}
                     </div>
-                    <FontAwesome className="fa-film" name="film" size="5x" />
+                    <FontAwesome src="" className="fa-film" name="film" size="5x" />
                 </div>
         </div>
     )
